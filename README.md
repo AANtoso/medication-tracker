@@ -1,24 +1,23 @@
-# README
+## Database
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Patients
+- name:string
+- birthday:string
+- mrn:integer
 
-Things you may want to cover:
+Medications
+- name:text
+- class:text
+- dose:text
+- frequency:text
+- route:text
 
-* Ruby version
+Providers
+- name:text
+- phone:text
+- location:text
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Prescriptions
+- medication_id:integer
+- provider_id:integer
+- prescribed_date:datetime
