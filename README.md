@@ -1,9 +1,9 @@
 ## Database
 
 Patients
-- name:string
-- birthday:string
-- mrn:integer
+- username:string
+- email:string
+- password:password_digest
 
 Medications
 - name:text
