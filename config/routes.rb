@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :prescriptions
   get 'sessions/index'
   get 'sessions/create'
   get 'sessions/new'
