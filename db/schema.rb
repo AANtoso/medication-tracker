@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 2019_12_05_223645) do
   end
 
   create_table "patients", force: :cascade do |t|
-    t.string "name"
-    t.string "birthday"
-    t.integer "mrn"
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
