@@ -12,16 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_12_06_003130) do
 
-  create_table "medications", force: :cascade do |t|
-    t.text "name"
-    t.text "class"
-    t.text "dose"
-    t.text "frequency"
-    t.text "route"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "patients", force: :cascade do |t|
     t.string "username"
     t.string "email"
