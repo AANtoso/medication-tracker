@@ -1,0 +1,18 @@
+<h1>Input A New Prescription</h1>
+
+<%= form_for @prescription do |f|%>
+
+    <%= f.label :medication_id%>
+    <%= f.text_field :medication_id%>
+
+    <%= f.label :provider_id%>
+    <%= f.text_field :provider_id%>
+
+    <%= f.label :prescribed_date%>
+    <%= f.text_field :prescribed_date%>
+
+    <%= f.label :provider_id, "Select Prescribing Provider" %>
+    <%= f.collection_select :provider_id, Provider.all, :id, :name, prompt: true%>
+
+    <%= f.submit%>
+<% end %>
