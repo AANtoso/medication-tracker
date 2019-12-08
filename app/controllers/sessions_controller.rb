@@ -3,20 +3,28 @@ class SessionsController < ApplicationController
   end
 
   def create
+    @patient = Patient.find_by(username: params[:patient][:username])
+    if @patient && @patient.authenticate(params[:patient][:password])
+        session[:patient_id] = @patient.id
+        redirect_to medications_path
+    else
+        render 'new'
+    end
   end
 
   def new
-  end
-
-  def edit
-  end
-
-  def show
-  end
-
-  def update
+    @patient = Patient.new
   end
 
   def destroy
+    session.clear
+    redirect_to root_path
   end
+
+  private
+
+  def auth
+    
+  end
+
 end
