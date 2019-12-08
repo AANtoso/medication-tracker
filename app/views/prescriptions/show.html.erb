@@ -1,0 +1,11 @@
+<h1>Your Prescription List</h1>
+
+<%= @prescription.medication_id %>
+
+<%= @prescription.provider_id %>
+
+<%= @prescription.prescribed_date %>
+
+<%= link_to 'Edit Prescription', edit_prescription_path(@prescription) %>
+
+<%= link_to 'Delete Prescription', prescription_path(@prescription) %>
