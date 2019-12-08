@@ -1,2 +1,25 @@
 class PatientsController < ApplicationController
+    def new
+        @patient = Patient.new
+    end
+
+    def create
+        @patient = Patient.new(patient_params)
+        if @patient.save
+            session[:patient_id] = @patient.id
+            redirect_to medications_path
+        else
+            render 'new'
+        end
+    end
+
+    def show
+        @patient = Patient.find_by(id: params[:id])
+    end
+
+    private
+
+    def user_params
+        params.require(:patient).permit(:username, :email, :password)
+    end
 end
