@@ -1,4 +1,8 @@
 class PatientsController < ApplicationController
+    def index
+        render 'patients/show'
+    end
+    
     def new
         @patient = Patient.new
     end
