@@ -11,14 +11,14 @@ class PatientsController < ApplicationController
         @patient = Patient.new(patient_params)
         if @patient.save
             session[:patient_id] = @patient.id
-            redirect_to medications_path
+            redirect_to patients_path
         else
             render 'new'
         end
     end
 
     def show
-        @patient = Patient.find_by(id: params[:id])
+        @patient = Patient.find_by_id(params[:id])
     end
 
     private
