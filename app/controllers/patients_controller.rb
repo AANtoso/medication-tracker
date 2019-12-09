@@ -11,7 +11,7 @@ class PatientsController < ApplicationController
         @patient = Patient.new(patient_params)
         if @patient.save
             session[:patient_id] = @patient.id
-            redirect_to patients_path
+            redirect_to prescriptions_path
         else
             render 'new'
         end

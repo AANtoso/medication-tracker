@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     @patient = Patient.find_by(username: params[:patient][:username])
     if @patient && @patient.authenticate(params[:patient][:password])
         session[:patient_id] = @patient.id
-        redirect_to medications_path
+        redirect_to prescriptions_path
     else
         render 'new'
     end
