@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
+
+  root 'sessions#index'
+
+  get '/register' => 'patients#new'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
   resources :prescriptions
-  get 'sessions/index'
-  get 'sessions/create'
-  get 'sessions/new'
-  get 'sessions/edit'
-  get 'sessions/show'
-  get 'sessions/update'
-  get 'sessions/destroy'
+  
   resources :providers
   resources :patients
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
