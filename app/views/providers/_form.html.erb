@@ -1,0 +1,15 @@
+<%= form_for @provider do |f|%>
+
+    <%= render partial: 'layouts/errors', locals: {object: @provider} %>
+
+    <%= f.label :name%>
+    <%= f.text_field :name %>
+
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+
+    <%= f.label :location%>
+    <%= f.text_area :location %>
+
+    <%= f.submit %>
+<% end %>
