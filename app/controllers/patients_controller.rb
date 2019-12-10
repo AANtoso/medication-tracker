@@ -23,7 +23,7 @@ class PatientsController < ApplicationController
 
     private
 
-    def user_params
+    def patient_params
         params.require(:patient).permit(:username, :email, :password)
     end
 end

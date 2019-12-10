@@ -2,7 +2,7 @@ class PrescriptionsController < ApplicationController
     before_action :authenticate_patient
     
     def index
-        @prescriptions = Presctiption.all
+        @prescriptions = Prescription.all
     end
 
     def new
@@ -44,7 +44,7 @@ class PrescriptionsController < ApplicationController
 
     private
 
-    def presctiption_params
-        params.require(:prescription).permit(:patient_id, :provider_id, :prescribed_date)
+    def prescription_params
+        params.require(:prescription).permit(:medication_id, :provider_id, :prescribed_date)
     end
 end

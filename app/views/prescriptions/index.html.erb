@@ -1,6 +1,11 @@
-<h1>Welcome, <%= @patient.username %></h1><br>
+<h1>Welcome, <%= current_patient.username %></h1><br>
 <h2>Your List of Prescriptions:</h2>
 
     <% @prescriptions.each do |p|%>
     <li><%= link_to p.medication_name, prescriptions_path(p.id) %></li>
+    <% end %>
+
+    <% if !@provider %>
+    <%= link_to 'Add a New Prescription', new_prescription_path %><br><br>
+    <%= link_to 'Show Providers', providers_path %><br><br>
     <% end %>
