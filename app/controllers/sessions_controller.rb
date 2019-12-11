@@ -21,6 +21,13 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+  def omniauth
+    @patient = Patient.from_omniauth(auth)
+    @patient.save
+    session[:patient_id] = @patient.id
+    redirect_to patient_path(@patient)
+  end
+
   private
 
   def auth
