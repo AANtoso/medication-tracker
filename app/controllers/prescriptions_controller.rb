@@ -16,7 +16,7 @@ class PrescriptionsController < ApplicationController
     def create
         @prescription = current_patient.prescriptions.build(prescription_params)
         if @prescription.save
-            redirect_to presctiption_path(@prescription)
+            redirect_to prescription_path(@prescription)
         else
             render 'new'
         end
