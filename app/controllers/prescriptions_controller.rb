@@ -14,7 +14,9 @@ class PrescriptionsController < ApplicationController
     end
 
     def create
+        # @prescription = Prescription.new
         @prescription = current_patient.prescriptions.build(prescription_params)
+        # binding.pry
         if @prescription.save
             redirect_to prescription_path(@prescription)
         else
@@ -39,12 +41,12 @@ class PrescriptionsController < ApplicationController
     def destroy
         @prescription = Prescription.find(params[:id])
         @prescription.destroy
-        redirect_to prescription_path
+        redirect_to prescriptions_path
     end
 
     private
 
     def prescription_params
-        params.require(:prescription).permit(:patient_id, :medication_id, :provider_id, :prescribed_date)
+        params.require(:prescription).permit(:patient_id, :medication_id, :provider_id, :prescribed_date, provider_attributes: [:name, :phone, :location, :id])
     end
 end

@@ -1,6 +1,6 @@
-<%= form_for @prescription do |f|%>
+<%= form_for prescription do |f|%>
 
-    <%= render partial: 'layouts/error', locals: {object: @prescription} %>
+    <%= render partial: 'layouts/errors', locals: {object: prescription} %>
 
     <%= f.label :medication_id%>
     <%= f.text_field :medication_id%>
@@ -12,7 +12,7 @@
     <%= f.text_field :prescribed_date%>
 
 <h3>Prescription Provider</h3>
-<%= f.fields_for @provider do |pres|%>
+<%= f.fields_for :provider do |pres|%>
 
     <%= pres.label :name%>
     <%= pres.text_field :name %>

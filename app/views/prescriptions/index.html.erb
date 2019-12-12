@@ -2,7 +2,7 @@
 <h2>Your List of Prescriptions:</h2>
 
     <% @prescriptions.each do |p|%>
-    <li><%= link_to p.medication_name, prescriptions_path(p.id) %></li>
+    <li><%= link_to p.medication_id, prescription_path(p.id) %></li>
     <% end %>
 
     <% if !@provider %>
