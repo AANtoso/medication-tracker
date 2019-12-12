@@ -8,6 +8,7 @@
 
 <%= link_to 'Edit Prescription', edit_prescription_path(@prescription) %>
 
+<%= link_to 'List of Prescriptions', prescriptions_path %>
+
 <%= button_to 'Delete Prescription', @prescription, method: :delete, data: { confirm: "Do you wish to delete this prescription?" } %>
 
-<%= link_to 'List of Prescriptions', prescriptions_path %>
