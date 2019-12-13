@@ -10,11 +10,12 @@ Rails.application.routes.draw do
   get 'auth/google_oauth2/callback' => 'sessions#omniauth'
 
   resources :prescriptions
-  
   resources :providers
   resources :patients
 
-    
+  resources :patients do
+    resources :providers, only: [:new, :create, :index, :show, :edit]
+  end
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

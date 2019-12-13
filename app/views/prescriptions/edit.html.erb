@@ -1,5 +1,15 @@
 <h1>Edit Your New Prescription</h1>
 
-<%= render partial: 'prescription_form', locals: {prescription: @prescription} %>
+<%= form_for @prescription do |f|%>
 
-   
+    <%= render partial: 'layouts/errors', locals: {object: @prescription} %>
+
+    <%= f.label :provider_id %>
+    <%= f.collection_select :provider_id, Provider.all, :id, :name, prompt: true %>
+
+    <%= f.label :prescribed_date %>
+    <%= f.text_field :prescribed_date %>
+
+    <%= f.submit %>
+
+<% end %>

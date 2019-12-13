@@ -7,8 +7,9 @@ class Patient < ApplicationRecord
     validates :username, :email, uniqueness: true
 
     def self.from_omniauth(auth)
+        # binding.pry
         where(email: auth.info.email).first_or_initialize do |patient|
-            patient.username = auth.info.username
+            patient.username = auth.info.name
             patient.email = auth.info.email
             patient.password = SecureRandom.hex
         end
