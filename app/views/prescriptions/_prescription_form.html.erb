@@ -2,19 +2,19 @@
 
     <%= render partial: 'layouts/errors', locals: {object: prescription} %>
 
-    <%= f.label :medication_id%>
-    <%= f.text_field :medication_id%>
+    <%= f.label :medication_id %>
+    <%= f.text_field :medication_id %>
 
-    <%= f.label :provider_id%>
-    <%= f.text_field :provider_id%>
+    <%= f.label :provider_id %>
+    <%= f.collection_select :provider_id, Provider.all, :id, :name, prompt: true %>
 
-    <%= f.label :prescribed_date%>
-    <%= f.text_field :prescribed_date%>
+    <%= f.label :prescribed_date %>
+    <%= f.text_field :prescribed_date %>
 
 <h3>Prescription Provider</h3>
-<%= f.fields_for :provider do |pres|%>
+<%= f.fields_for :provider do |pres| %>
 
-    <%= pres.label :name%>
+    <%= pres.label :name %>
     <%= pres.text_field :name %>
 
     <%= pres.label :phone %>
@@ -24,6 +24,6 @@
     <%= pres.text_area :location %>
     <% end %>
     
-    <%= f.submit%>
+    <%= f.submit %>
 
 <% end %>
