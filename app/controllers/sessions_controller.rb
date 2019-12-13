@@ -7,8 +7,10 @@ class SessionsController < ApplicationController
     if @patient && @patient.authenticate(params[:patient][:password])
         session[:patient_id] = @patient.id
         redirect_to prescriptions_path
-    else
+    else 
+      @patient = Patient.new
         render 'new'
+        # flash[:error] = "No profile matches that information. Please login with different credentials."
     end
   end
 

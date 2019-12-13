@@ -2,7 +2,7 @@ class PrescriptionsController < ApplicationController
     before_action :authenticate_patient
     
     def index
-        @prescriptions = Prescription.all
+        @prescriptions = current_patient.prescriptions
     end
 
     def new

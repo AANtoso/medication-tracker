@@ -1,7 +1,7 @@
 class ProvidersController < ApplicationController
 
     def index
-        @providers = Provider.all
+        @providers = current_patient.providers
     end
 
     def new

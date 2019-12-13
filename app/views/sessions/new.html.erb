@@ -1,5 +1,7 @@
 <h1>Login</h1>
 
+<p><%= flash[:error] %></p>
+
 <%= form_for @patient, url: login_path do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %>
