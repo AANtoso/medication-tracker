@@ -2,9 +2,6 @@
 
     <%= render partial: 'layouts/errors', locals: {object: prescription} %>
 
-    <%= f.label :medication_id %>
-    <%= f.text_field :medication_id %>
-
     <%= f.label :provider_id %>
     <%= f.collection_select :provider_id, Provider.all, :id, :name, prompt: true %>
 
