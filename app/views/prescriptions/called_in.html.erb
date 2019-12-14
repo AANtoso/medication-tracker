@@ -1,0 +1,5 @@
+<h2>Your Called-In Prescriptions:</h2>
+
+    <% @prescriptions.each do |p|%>
+    <li><%= link_to p.medication_id, prescription_path(p.id) %></li>
+    <% end %>

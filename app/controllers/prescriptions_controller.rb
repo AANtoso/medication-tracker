@@ -44,6 +44,10 @@ class PrescriptionsController < ApplicationController
         redirect_to prescriptions_path
     end
 
+    def called_in
+        @prescriptions = Prescription.called_in
+    end
+
     private
 
     def prescription_params

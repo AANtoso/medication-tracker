@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'auth/google_oauth2/callback' => 'sessions#omniauth'
 
+  get '/prescriptions/called_in', to: 'prescriptions#called_in'
+
   resources :prescriptions
   resources :providers
   resources :patients
