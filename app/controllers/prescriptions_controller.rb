@@ -45,7 +45,7 @@ class PrescriptionsController < ApplicationController
     end
 
     def called_in
-        @prescriptions = Prescription.called_in
+        @prescriptions = current_patient.prescriptions.called_in
     end
 
     private
