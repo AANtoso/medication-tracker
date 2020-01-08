@@ -1,4 +1,5 @@
 class ProvidersController < ApplicationController
+    before_action :set_provider, only: [:show, :edit, :update]
 
     def index
         @providers = current_patient.providers
@@ -18,20 +19,21 @@ class ProvidersController < ApplicationController
     end
 
     def show
-        @provider = Provider.find(params[:id])
     end
 
     def edit
-        @provider = Provider.find(params[:id])
     end
 
     def update
-        @provider = Provider.find(params[:id])
         @provider.update(provider_params)
         redirect_to provider_path(@provider)
     end
 
     private
+
+    def set_provider
+        @provider = Provider.find(params[:id])
+    end
 
     def provider_params
         params.require(:provider).permit(:name, :phone, :location)

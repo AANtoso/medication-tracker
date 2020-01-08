@@ -1,5 +1,6 @@
 class PrescriptionsController < ApplicationController
     before_action :authenticate_patient
+    before_action :set_prescription, only: [:show, :edit, :update, :destroy]
     
     def index
         @prescriptions = current_patient.prescriptions
@@ -25,21 +26,17 @@ class PrescriptionsController < ApplicationController
     end
 
     def show
-        @prescription = Prescription.find(params[:id])
     end
 
     def edit
-        @prescription = Prescription.find(params[:id])
     end
 
     def update
-        @prescription = Prescription.find(params[:id])
         @prescription.update(prescription_params)
         redirect_to prescription_path(@prescription)
     end
 
     def destroy
-        @prescription = Prescription.find(params[:id])
         @prescription.destroy
         redirect_to prescriptions_path
     end
@@ -49,6 +46,10 @@ class PrescriptionsController < ApplicationController
     end
 
     private
+
+    def set_prescription
+        @prescription = Prescription.find(params[:id])
+    end
 
     def prescription_params
         params.require(:prescription).permit(:patient_id, :medication_id, :provider_id, :prescribed_date, provider_attributes: [:name, :phone, :location])
