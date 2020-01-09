@@ -4,14 +4,12 @@ class SessionsController < ApplicationController
 
   def create
     @patient = Patient.find_by(username: params[:patient][:username])
-    # binding.pry
+
     if @patient && @patient.authenticate(params[:patient][:password])
         session[:patient_id] = @patient.id
         redirect_to prescriptions_path
     else 
-      # @patient = Patient.new
       flash[:error] = "No profile matches that information. Please login with different credentials."
-      # render 'new'
       redirect_to login_path
     end
   end
