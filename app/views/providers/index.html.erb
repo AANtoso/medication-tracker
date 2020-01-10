@@ -1,8 +1,12 @@
 <ul>
-<% @providers.each do |provider|%>
-<li> <%= link_to provider.name, provider_path(provider) %> </li>
-<% end %>
-
 <%= link_to 'Add a New Provider', new_provider_path %>
 <%= link_to 'List of Prescriptions', prescriptions_path %>
 </ul>
+
+<%= form_tag(providers_path, method: :get) do %>
+    Name <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag 'Search', name: nil %>
+<% end %>
+<% @providers.each do |provider| %>
+<li> <%= link_to provider.name, provider_path(provider) %> </li>
+<% end %>

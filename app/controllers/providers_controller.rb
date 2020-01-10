@@ -2,7 +2,11 @@ class ProvidersController < ApplicationController
     before_action :set_provider, only: [:show, :edit, :update]
 
     def index
-        @providers = current_patient.providers
+        # if !params[:name].blank?
+        #     @provider = Provider.where(name: params[:name])
+        #     # @provider = Provider.where('name LIKE ?', "%#{params[:name]}%")
+        # else
+            @providers = current_patient.providers.search(params[:search])
     end
 
     def new
@@ -36,7 +40,7 @@ class ProvidersController < ApplicationController
     end
 
     def provider_params
-        params.require(:provider).permit(:name, :phone, :location)
+        params.require(:provider).permit(:name, :phone, :location, :search)
     end
 end
 
