@@ -3,8 +3,7 @@
 ## Overview
 Keeying track if your medications can be an exhausting and tasking procedure! MedicationTracker is a Ruby On Rails application that allows users to keep track of their medications and providers. The app allows a user to create a login if they don't already have one, or login if the have one. After a user is logged in, they can then create, edit, and delete their own medications on their list of medications. They can also create a list of providers that are linked to the medications.
 
-My demo can be found at the following link: https://www.youtube.com/watch?v=zFFGx64YNwg&t=8s.
-
+![Demo Gif](https://github.com/AANtoso/medication-tracker/blob/master/Rails.gif?raw=true)
 ## Installation
 To execute this application, clone and run 'bundle install'. Run 'rails db:migrate'. Use 'rails server' to run the application in your browser.
 
